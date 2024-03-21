@@ -22,7 +22,7 @@ class MLAPI:
             }
         }
 
-    def apiCall(self, url: str, payload: dict, data: str) -> list[dict[str, str]] | str:
+    def apiCall(self, url: str, payload: dict, data: str) -> list[dict[str, any]] | str:
         try:
             response = requests.post(url, headers=self.__headers, json=payload)
             if len(response.json()['results']['errors']) != 0:
@@ -31,43 +31,43 @@ class MLAPI:
         except Exception as e:
             return str(e)
 
-    def detectEntities(self, documents: list[dict[str, str]]) -> list[dict[str, str]] | str:
+    def detectEntities(self, documents: list[dict[str, str]]) -> list[dict[str, any]] | str:
         url = self.__endpoint + "/language/:analyze-text?api-version=" + self.version
         payload = self.genPayload("PiiEntityRecognition", documents)
 
         return self.apiCall(url, payload, 'entities')
 
-    def redactDocuments(self, documents: list[dict[str, str]]) -> list[dict[str, str]] | str:
+    def redactDocuments(self, documents: list[dict[str, str]]) -> list[dict[str, any]] | str:
         url = self.__endpoint + "/language/:analyze-text?api-version=" + self.version
         payload = self.genPayload("PiiEntityRecognition", documents)
 
         return self.apiCall(url, payload, 'redactedText')
 
-    def keywordExtraction(self, documents: list[dict[str, str]]) -> list[dict[str, str]] | str:
+    def keywordExtraction(self, documents: list[dict[str, str]]) -> list[dict[str, any]] | str:
         url = self.__endpoint + "/language/:analyze-text?api-version=" + self.version
         payload = self.genPayload("KeyPhraseExtraction", documents)
 
         return self.apiCall(url, payload, 'keyPhrases')
 
-    def entityLinking(self, documents: list[dict[str, str]]) -> list[dict[str, str]] | str:
+    def entityLinking(self, documents: list[dict[str, str]]) -> list[dict[str, any]] | str:
         url = self.__endpoint + "/language/:analyze-text?api-version=" + self.version
         payload = self.genPayload("EntityLinking", documents)
 
         return self.apiCall(url, payload, 'entities')
 
-    def entityRecognition(self, documents: list[dict[str, str]]) -> list[dict[str, str]] | str:
+    def entityRecognition(self, documents: list[dict[str, str]]) -> list[dict[str, any]] | str:
         url = self.__endpoint + "/language/:analyze-text?api-version=" + self.version
         payload = self.genPayload("EntityRecognition", documents)
 
         return self.apiCall(url, payload, 'entities')
 
-    def sentimentAnalysis(self, documents: list[dict[str, str]]) -> list[dict[str, str]] | str:
+    def sentimentAnalysis(self, documents: list[dict[str, str]]) -> list[dict[str, any]] | str:
         url = self.__endpoint + "/language/:analyze-text?api-version=" + self.version
         payload = self.genPayload("SentimentAnalysis", documents)
 
         return self.apiCall(url, payload, 'sentiment')
 
-    def languageDetection(self, documents: list[dict[str, str]]) -> list[dict[str, str]] | str:
+    def languageDetection(self, documents: list[dict[str, str]]) -> list[dict[str, any]] | str:
         url = self.__endpoint + "/language/:analyze-text?api-version=" + self.version
         payload = self.genPayload("LanguageDetection", documents)
 
