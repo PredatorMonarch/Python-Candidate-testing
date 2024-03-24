@@ -80,11 +80,35 @@ results = mlapi.detectEntities(documents)
 
 '''
 results = [{
-    'id': '1', 
-    'entities': [{'text': '312-555-1234', 'category': 'PhoneNumber', 'offset': 19, 'length': 12, 'confidenceScore': 0.8}, {'text': 'support@contoso.com', 'category': 'Email', 'offset': 53, 'length': 19, 'confidenceScore': 0.8}]
-    },
-    'id': '2', 
-    'entities': [{'text': 'employee', 'category': 'PersonType', 'offset': 4, 'length': 8, 'confidenceScore': 0.88}, {'text': '2211 Old York Rd, Springfield, IL 62704', 'category': 'Address', 'offset': 26, 'length': 39, 'confidenceScore': 1.0}]
+        'id': '1', 
+        'entities': [{
+            'text': '312-555-1234', 
+            'category': 'PhoneNumber', 
+            'offset': 19, 
+            'length': 12, 
+            'confidenceScore': 0.8
+            }, {
+            'text': 'support@contoso.com', 
+            'category': 'Email', 
+            'offset': 53, 
+            'length': 19, 
+            'confidenceScore': 0.8
+            }]
+    }, {
+        'id': '2', 
+        'entities': [{
+            'text': 'employee', 
+            'category': 'PersonType', 
+            'offset': 4, 
+            'length': 8, 
+            'confidenceScore': 0.88
+            }, {
+            'text': '2211 Old York Rd, Springfield, IL 62704', 
+            'category': 'Address', 
+            'offset': 26, 
+            'length': 39, 
+            'confidenceScore': 1.0
+            }]
     }]
 '''
 ```
