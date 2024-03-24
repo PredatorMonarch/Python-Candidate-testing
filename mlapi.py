@@ -1,6 +1,4 @@
 import requests
-import json
-
 class MLAPI:
 
     def __init__(self, url: str, key: str, version: str = "2023-04-01") -> None:
